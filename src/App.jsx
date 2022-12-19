@@ -1,7 +1,6 @@
 import "./App.css";
-import { useReactTable } from "@tanstack/react-table";
 import { useState } from "react";
-import './MONTHS';
+import { MONTHS } from './MONTHS';
 
 const App = () => {
   // console.log(MONTHS);
