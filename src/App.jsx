@@ -1,8 +1,8 @@
 import "./App.css";
 import { useState } from "react";
-import { MONTHS } from "./MONTHS";
+import { MONTHS } from "./data/MONTHS";
 import { useForm } from "react-hook-form";
-import { monthValidate } from "./monthValidate";
+import { monthValidate, yearValidator } from "./utils/validate-form";
 
 const App = () => {
   const {

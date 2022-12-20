@@ -1,4 +1,4 @@
-import { MONTHS } from "./MONTHS";
+import { MONTHS } from "../data/MONTHS";
 
 const monthValidate = (value) => {
     value = MONTHS[value.toLowerCase()];
@@ -6,5 +6,9 @@ const monthValidate = (value) => {
     && value <= 11;
 }
 
+const yearValidate = (value) => {
+    // validate year
+}
 
-export { monthValidate };
+
+export { monthValidate, yearValidate };
