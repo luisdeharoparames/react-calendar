@@ -1,43 +1,50 @@
 import "./App.css";
 import { useState } from "react";
-import { MONTHS } from './MONTHS';
+import { MONTHS } from "./MONTHS";
+import { useForm } from "react-hook-form";
+import { monthValidate } from "./monthValidate";
 
 const App = () => {
-  // console.log(MONTHS);
-  const handleSubmitMonth = (eMonth) => {
-    if(eMonth){
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const [ data, setData ] = useState("");
+  const onSubmit = (data) => {
+    console.log(data);
+    
 
-    }
-  };
-
-  const handleSubmitYear = (eYear) => {
-    console.log("Year: " + eYear.target.value);
-  };
-
+  }
 
   return (
     <div className="App">
-      <form id="myForm">
+      <form id="myForm" onSubmit={handleSubmit(onSubmit)}>
         <div id="divFormMonth">
           <label> Introduce el mes: </label>
           <input
             type="text"
+            // onChange={onChange}
+            {...register('month', {
+              validate: monthValidate
+            })}
             id="month"
             name="month"
             placeholder="enero..."
-            onChange={handleSubmitMonth}
-          ></input>
+          />
         </div>
+        {errors.month && <p>Esto no es un Mes del Año</p>}
         <div id="divFormYear">
           <label> Introduce el año: </label>
           <input
             type="text"
+            {...register("year", {validate: yearValidator ,required: "Obligatorio poner el Año" })}
             id="year"
             name="year"
             placeholder="2000"
-            onChange={handleSubmitYear}
           />
         </div>
+        <p>{errors.year?.message}</p>
         <div id="divExplicacion">
           <label>
             *Si Introduces mes y año solo mostrara por pantalla el mes del año
@@ -50,7 +57,7 @@ const App = () => {
         </div>
         <div id="divButton">
           <button type="submit" id="buttonStyle">
-            Aceptar
+            Enviar
           </button>
         </div>
       </form>
