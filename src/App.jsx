@@ -1,8 +1,8 @@
-import "./App.css";
+import "./styles/App.css"
 import { useState } from "react";
-import { MONTHS } from "./data/MONTHS";
 import { useForm } from "react-hook-form";
-import { monthValidate, yearValidator } from "./utils/validate-form";
+import { monthValidate, yearValidate , createCalendar } from "./utils/validate-form";
+// import { createCalendar } from "./utils/calendar";
 
 const App = () => {
   const {
@@ -10,12 +10,15 @@ const App = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [ data, setData ] = useState("");
+
+  // const [ data, setData ] = useState("");
+
   const onSubmit = (data) => {
-    console.log(data);
-    
+    //Check Inputs and Create Table
+    createCalendar();
 
   }
+
 
   return (
     <div className="App">
@@ -38,12 +41,13 @@ const App = () => {
           <label> Introduce el año: </label>
           <input
             type="text"
-            {...register("year", {validate: yearValidator ,required: "Obligatorio poner el Año" })}
+            {...register("year", {validate: yearValidate ,required: "Obligatorio poner el Año" })}
             id="year"
             name="year"
             placeholder="2000"
           />
         </div>
+        {errors.year && <p>Esto no es un Año</p>}
         <p>{errors.year?.message}</p>
         <div id="divExplicacion">
           <label>
