@@ -1,5 +1,6 @@
 import "./styles/App.css";
 import { useForm } from "react-hook-form";
+import { Year } from "./components/Year"
 
 
 // import {
@@ -81,6 +82,8 @@ const App = () => {
           </button>
         </div>
       </form>
+
+      <Year year={2023} month={1} />
     </div>
   );
 };
