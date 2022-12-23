@@ -23,3 +23,10 @@ p{
     justify-content: center;
     color: red;
 }
+
+
+.calendarContainer{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 22px;
+}

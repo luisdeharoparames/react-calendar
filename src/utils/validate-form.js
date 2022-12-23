@@ -1,23 +1,21 @@
-import { MONTHS } from "../data/MONTHS";
-// import { createCalendar } from "./calendar";
-const monthValidate = (value) => {
-    // validate month
-    value = MONTHS[value.toLowerCase()];
-    return value !== undefined && value !== "" && value >= 0 
-    && value <= 11;
-}
+// import { MONTHS } from "../data/MONTHS";
 
-const yearValidate = (value) => {
-    // validate year
-    const n = Number(value);
-    return year !== "" && !isNaN(n) && n >= 1970;
+//  const monthValidate = (value) => {
+//   // validate month
+//   if(!value){
+//     return true;
+//   }
+//   const month = MONTHS[value.toLowerCase()];
+//   return month !== undefined && month >= 0 && month <= 11;
 
-}
+//  };
 
-const createCalendar = (monthValidate,yearValidate) => {
-    if(monthValidate && yearValidate){
-        console.log("Hola");
-    }
-}
+// const yearValidate = (value) => {
+//   // validate year
+//   const n = Number(value);
+//   return year !== "" && !isNaN(n) && n >= 1970;
+// };
 
-export { monthValidate, yearValidate };
+
+
+// export { monthValidate, yearValidate };

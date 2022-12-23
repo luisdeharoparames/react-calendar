@@ -1,8 +1,13 @@
-import "./styles/App.css"
-import { useState } from "react";
+import "./styles/App.css";
 import { useForm } from "react-hook-form";
-import { monthValidate, yearValidate , createCalendar } from "./utils/validate-form";
-// import { createCalendar } from "./utils/calendar";
+
+
+// import {
+//   monthValidate,
+//   yearValidate
+// } from "./utils/validate-form";
+
+import {createAllMonths, createOneMonth} from "./utils/calendar";
 
 const App = () => {
   const {
@@ -11,14 +16,23 @@ const App = () => {
     formState: { errors },
   } = useForm();
 
-  // const [ data, setData ] = useState("");
-
   const onSubmit = (data) => {
-    //Check Inputs and Create Table
-    createCalendar();
-
+    for(let i = 0; i < 12; i++){
+      createAllMonths(i,2022);
+    }
   }
-
+    
+    //catch month and year
+    // const month = data.month;
+    // const year = data.year;
+    // if (yearValidate && !monthValidate) {
+    //   console.log("hola");
+    //   for (let i = 0; i < 11; i++) {
+    //     createAllMonths(i, year, month);
+    //   }
+    // } else if (yearValidate && monthValidate) {
+    //   createOneMonth(month, year);
+    // }
 
   return (
     <div className="App">
@@ -27,21 +41,23 @@ const App = () => {
           <label> Introduce el mes: </label>
           <input
             type="text"
-            // onChange={onChange}
-            {...register('month', {
-              validate: monthValidate
+            {...register("month", {
+              // validate: monthValidate,
             })}
             id="month"
             name="month"
             placeholder="enero..."
           />
         </div>
-        {errors.month && <p>Esto no es un Mes del Año</p>}
+        {/* {errors.month && <p>Esto no es un Mes del Año</p>} */}
         <div id="divFormYear">
           <label> Introduce el año: </label>
           <input
             type="text"
-            {...register("year", {validate: yearValidate ,required: "Obligatorio poner el Año" })}
+            {...register("year", {
+              // validate: yearValidate,
+              // required: "Obligatorio poner el Año",
+            })}
             id="year"
             name="year"
             placeholder="2000"
