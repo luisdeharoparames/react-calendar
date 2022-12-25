@@ -1,6 +1,6 @@
 import "./styles/App.css";
 import { useForm } from "react-hook-form";
-import { Year } from "./components/Year"
+import { Year } from "./components/Year";
 
 
 // import {
@@ -8,7 +8,7 @@ import { Year } from "./components/Year"
 //   yearValidate
 // } from "./utils/validate-form";
 
-import {createAllMonths, createOneMonth} from "./utils/calendar";
+// import {createAllMonths, createOneMonth} from "./utils/calendar";
 
 const App = () => {
   const {
@@ -18,9 +18,7 @@ const App = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    for(let i = 0; i < 12; i++){
-      createAllMonths(i,2022);
-    }
+    
   }
     
     //catch month and year
@@ -83,7 +81,7 @@ const App = () => {
         </div>
       </form>
 
-      <Year year={2023} month={1} />
+      <Year year={2022} month={1}  />
     </div>
   );
 };
