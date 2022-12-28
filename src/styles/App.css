@@ -30,3 +30,27 @@ p{
     grid-template-columns: repeat(7, 1fr);
     font-size: 22px;
 }
+/* H1 Year */
+.h1Year{
+    text-align: center;
+}
+
+/* div Months */
+.divMonth{
+    width: 100%;
+    background-color: rgb(223, 190, 190);
+    text-align: center;
+    text-transform: capitalize;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.divDays{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: aqua;
+}
+
+.divWeekDays{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
