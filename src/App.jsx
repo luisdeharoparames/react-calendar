@@ -81,7 +81,7 @@ const App = () => {
         </div>
       </form>
 
-      <Year year={2022} month={1} />
+      <Year />
     </div>
   );
 };
