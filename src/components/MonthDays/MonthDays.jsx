@@ -6,5 +6,5 @@ export const MonthDays = ({ month, year }) => {
   for (let i = 0; i < dayMonth; i++) {
     arrayDays.push(i + 1);
   }
-  return <>{arrayDays}</>;
+  return <div className="">{arrayDays}</div>;
 };
