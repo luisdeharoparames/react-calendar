@@ -13,7 +13,6 @@ export const AllMonths = ({ year, month }) => {
           <h1 className="h1Title">{intl.format(new Date(year, n))}</h1>
           <div className="boxMonth">
             <MonthWeekDays year={year} month={month} />
-            {console.log(hola)}
           </div>
         </div>
       ))}{" "}
