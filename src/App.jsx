@@ -1,14 +1,7 @@
 import "./styles/App.css";
 import { useForm } from "react-hook-form";
 import { Year } from "./components/Year";
-
-
-// import {
-//   monthValidate,
-//   yearValidate
-// } from "./utils/validate-form";
-
-// import {createAllMonths, createOneMonth} from "./utils/calendar";
+import { monthValidate, yearValidate } from "./utils/validate-form"; 
 
 const App = () => {
   const {
@@ -18,20 +11,17 @@ const App = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    
-  }
-    
     //catch month and year
-    // const month = data.month;
-    // const year = data.year;
-    // if (yearValidate && !monthValidate) {
-    //   console.log("hola");
-    //   for (let i = 0; i < 11; i++) {
-    //     createAllMonths(i, year, month);
-    //   }
-    // } else if (yearValidate && monthValidate) {
-    //   createOneMonth(month, year);
-    // }
+    const month = data.month;
+    const year = data.year;
+    const validateMonth = monthValidate(month);
+    const validateYear = yearValidate(year);
+
+    if(validateMonth && validateYear){
+      <Year year={year} month={month} />
+    }
+
+  };
 
   return (
     <div className="App">
@@ -80,8 +70,8 @@ const App = () => {
           </button>
         </div>
       </form>
-
-      <Year year={2022} month={1} />
+      {/*Month: Enero es 1 , etc... , null,0,undefined pinta todo el año*/}
+      <Year year={year} month={month} />
     </div>
   );
 };

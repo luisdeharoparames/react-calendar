@@ -1,98 +1,96 @@
-#divFormMonth{
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1rem;
+#divFormMonth {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
 }
 
-#divFormYear{
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1rem;
+#divFormYear {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
 }
 
-#divButton{
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
+#divButton {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
 }
 
-p{
-    display: flex;
-    justify-content: center;
-    color: red;
+p {
+  display: flex;
+  justify-content: center;
+  color: red;
 }
 
-
-.calendarContainer{
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    font-size: 22px;
+.calendarContainer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-size: 22px;
 }
 /* H1 Year */
-.h1Year{
-    text-align: center;
+.h1Year {
+  text-align: center;
 }
 
 /* div Months */
-.boxMonths{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    padding: 1rem;
-    gap: 1rem;
-    border: 1px solid #ececec;
-    box-shadow: 2px -2px 5px #413e3e;
-    margin-bottom: 0.625rem;
-    padding: 0.625rem 1rem;
+.boxMonths {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1rem;
+  gap: 1rem;
+  border: 1px solid #ececec;
+  box-shadow: 2px -2px 5px #413e3e;
+  margin-bottom: 0.625rem;
+  padding: 0.625rem 1rem;
 }
 
-
-.divWeekDays{
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    background-color: aqua;
+.divWeekDays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: aqua;
 }
 
-.h1Title{
-    background: #1d252c;
-    color: white;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 1rem;
-    text-align: center;
-    text-transform: capitalize;
-    width: 100%;
+.h1Title {
+  background: #1d252c;
+  color: white;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  text-transform: capitalize;
+  width: 100%;
 }
 
 .containerMonth {
-    border: 1px solid #ececec;
-    margin: 0.3rem;
-    zoom: 0.6;
-  }
-  .day-name{
-    background: #1d252c;
-    padding: 1rem;
-    text-align: center;
-    color: white;
-    text-transform: capitalize;
-  }
-  
-  .boxMonth {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    /* background: #423f56; */
-    font-size: 22px;
-  }
+  border: 1px solid #ececec;
+  margin: 0.3rem;
+  zoom: 0.6;
+}
+.day-name {
+  background: #1d252c;
+  padding: 1rem;
+  text-align: center;
+  color: white;
+  text-transform: capitalize;
+}
 
-  .divDays {
-    padding: 0.625rem;
-    text-align: center;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.boxMonth {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  /* background: #423f56; */
+  font-size: 22px;
+}
+
+.divDays {
+  padding: 0.625rem;
+  min-width: 50px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

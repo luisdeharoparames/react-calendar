@@ -1,18 +1,17 @@
 import { AllMonths } from "../Month/AllMonth";
-import "../../data/LOCALE";
+import { LOCALE } from "../../data/LOCALE";
 import "../../styles/App.css";
-export const Year = () => {
-  // const months = month ? [month] : [...new Array(12)].map((_, i) => i + 1);
-  const year = 2022;
-  const month = 12;
+export const Year = ({ year, month}) => {
+  console.log(year);
+  const months = month ? [month - 1] : [...new Array(12)].map((_, i) => i);
   return (
     <>
-      <div className="">
-        <h1 className="h1Year">Year {year}</h1>
-      </div>
-      <div className="">
-        <AllMonths year={year} month={month} />
-      </div>
+      {months.length > 1 && (
+        <div className="">
+          <h1 className="h1Year">Year {year}</h1>
+        </div>
+      )}
+      <AllMonths year={year} months={months} locale={LOCALE}/>
     </>
   );
 };

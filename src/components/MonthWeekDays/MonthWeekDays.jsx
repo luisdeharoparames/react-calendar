@@ -1,10 +1,7 @@
-import "../../data/LOCALE";
-import { MonthDays } from "../MonthDays/MonthDays";
-export const MonthWeekDays = (locale, {year, month}) => {
-  console.log("dias de la semana" + year,month);
+import { DaysMonth } from "../MonthDays/MonthDays";
+export const MonthWeekDays = ({ year, month, locale }) => {
   const intl = new Intl.DateTimeFormat(locale, { weekday: "long" });
   const weekDays = [...new Array(7).keys()].map((weekDay) => weekDay);
-  const daysMonth = [...new Array(12).keys()].map((days) => days);
   return (
     <>
       {weekDays.map((n) => (
@@ -12,11 +9,7 @@ export const MonthWeekDays = (locale, {year, month}) => {
           {intl.format(new Date(1973, 0, n + 1))}
         </div>
       ))}
-      {daysMonth.map((numMonth) => (
-        <div key={numMonth} className="">
-          <MonthDays year={year} month={numMonth} />
-        </div>
-      ))}
+      <DaysMonth year={year} month={month} />
     </>
   );
 };
