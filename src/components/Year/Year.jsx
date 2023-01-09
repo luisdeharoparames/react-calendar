@@ -2,7 +2,7 @@ import { AllMonths } from "../Month/AllMonth";
 import { LOCALE } from "../../data/LOCALE";
 import "../../styles/App.css";
 export const Year = ({ year, month}) => {
-  console.log(year);
+  console.log(year,month);
   const months = month ? [month - 1] : [...new Array(12)].map((_, i) => i);
   return (
     <>
