@@ -1,3 +1,4 @@
+//Months numbers
 export const MONTHS = {
   enero: 0,
   febrero: 1,

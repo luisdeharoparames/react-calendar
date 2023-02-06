@@ -1,0 +1,12 @@
+/*H1 Year*/
+h1 {
+  text-align: center;
+}
+
+/*Class Calendar Style*/
+.calendar {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 1rem 0rem 0rem;
+}

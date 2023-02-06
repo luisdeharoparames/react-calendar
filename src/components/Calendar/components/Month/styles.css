@@ -1,0 +1,26 @@
+/*Div Container Month/s*/
+.containerMonth {
+  background-color: #fff;
+  margin: 0.3rem;
+  zoom: 0.4;
+}
+
+/*H1 Title Month*/
+.containerMonth h1 {
+  background: #2e74b4;
+  color: white;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  text-transform: capitalize;
+  width: 100%;
+}
+
+/*Div Month Content*/
+.containerMonth .boxMonth {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: #fff;
+  font-size: 22px;
+}

@@ -1,4 +1,5 @@
 import { DaysMonth } from "../MonthDays/MonthDays";
+import "./styles.css";
 export const MonthWeekDays = ({ year, month, locale }) => {
   const intl = new Intl.DateTimeFormat(locale, { weekday: "long" });
   const weekDays = [...new Array(7).keys()].map((weekDay) => weekDay);
