@@ -40,6 +40,7 @@
 }
 
 .modal-back {
+  zoom: 1.7;
   background: rgba(0, 0, 0, 0.5);
   bottom: 0;
   left: 0;
@@ -82,6 +83,17 @@
   padding: 1rem 1rem 1rem 1rem;
 }
 
+.modal-back .modal-content .modal-body .content-input {
+  /* padding: 1rem; */
+  display: grid;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.modal-back .modal-content .modal-body .content-input .textArea {
+  resize: none;
+}
+
 .modal-back .modal-content .modal-body input {
   border-radius: 5px;
   padding: 5px;
@@ -92,33 +104,46 @@
   border: 2.5px solid #1899d6;
 }
 
-.textArea{
- border: 2px solid #1899d6;
-}
-
-.modal-back .modal-content .modal-header .modal-action button:hover {
-  background-color: #dd0101;
+.textArea {
+  border: 2px solid #1899d6;
 }
 
 .modal-back .modal-content .modal-footer {
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
   padding: 1rem;
 }
 
-.modal-back .modal-content .modal-footer button{
+.modal-back .modal-content .modal-footer .button-cancel {
   border-radius: 8px;
-  background-color: #1899d6;
+  background-color: white;
   border: 1px solid transparent;
   padding: 0.6rem 1.2rem;
-  color: black;
+  color: red;
   cursor: pointer;
   font-size: 14px;
 }
 
-.modal-back .modal-content .modal-footer button:hover {
-  transform: translateY(-5px);
+.modal-back .modal-content .modal-footer .button-cancel:hover {
+  background-color: red;
+  color: white;
 }
+
+.modal-back .modal-content .modal-footer .button-save {
+  border-radius: 8px;
+  background-color: white;
+  border: 1px solid transparent;
+  padding: 0.6rem 1.2rem;
+  color: green;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.modal-back .modal-content .modal-footer .button-save:hover {
+  background-color: green;
+  color: white;
+}
+
 /* .modal-back .modal-content .close-modal {
   position: absolute;
   right: 0.325rem;

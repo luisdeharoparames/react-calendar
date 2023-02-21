@@ -3,7 +3,7 @@ import "../../pages/App/App.css";
 import "./styles.css";
 import { monthValidate } from "../Calendar/utils/validate-form";
 
-export const FormCalendar = ({ onSubmit, clear }) => {
+export const FormCalendar = ({ onSubmit, clear, showEvents }) => {
   const {
     register,
     handleSubmit,
@@ -23,7 +23,7 @@ export const FormCalendar = ({ onSubmit, clear }) => {
             placeholder="enero..."
           />
           <div className="float-errors">
-            {errors.month && <p>Esto no es un Mes</p>} 
+            {errors.month && <p>Esto no es un Mes</p>}
           </div>
         </div>
         <div className="box-input-form">
@@ -48,7 +48,7 @@ export const FormCalendar = ({ onSubmit, clear }) => {
           </div>
         </div>
         <div className="divButtons">
-          <button type="submit" className="btn">
+          <button type="submit" className="btn" onClick={showEvents}>
             Enviar
           </button>
           <button type="reset" className="btn" onClick={clear}>

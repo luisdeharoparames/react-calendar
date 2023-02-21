@@ -10,7 +10,7 @@ const getClassName = (year, month, day) => {
   return d === 0 ? "sunday" : d === 6 ? "saturday" : "";
 };
 
-export const DaysMonth = ({ year, month }) => {
+export const DaysMonth = ({ year, month, eventos }) => {
   //HandleSubmit react-hook-form
   const { handleSubmit, register, reset } = useForm();
 
@@ -20,6 +20,7 @@ export const DaysMonth = ({ year, month }) => {
   const [open, setOpen] = useState(false);
   const [daySelected, setDaySelected] = useState(false);
   const [resApi, setResApi] = useState(null);
+  const [events, setEvents] = useState([]);
 
   const startOn = getDay(year, month, 1);
   const style = {
@@ -39,22 +40,20 @@ export const DaysMonth = ({ year, month }) => {
   const actualDay = d.getDate();
 
   const openForm = (daySelected) => {
-    setResApi(null)
     setOpen(true);
     setDaySelected(daySelected);
   };
 
   const closeModal = () => {
-    setResApi(null)
-    reset()
-    setOpen(false)
-  }
-
+    reset();
+    setOpen(false);
+  };
+  console.log(eventos);
   // useEffect(() => {}, [month, year, days, textArea]);
 
   const onSubmit = (d) => {
-    console.log(d);
-    setResApi(null)
+    // console.log(d);
+
     const { event: title, comment } = d;
     const requestOptions = {
       method: "POST",
@@ -62,8 +61,8 @@ export const DaysMonth = ({ year, month }) => {
       body: JSON.stringify({
         title,
         comment,
-        month: 24,
-        year,
+        month,
+        year: Number(year),
         day: daySelected,
       }),
     };
@@ -72,40 +71,43 @@ export const DaysMonth = ({ year, month }) => {
       .then((response) => response.json())
       // {"message":"ok","status":200}
       .then((data) => {
+        console.log(data);
         if (data.status >= 300) {
           console.error("ha habido un error", data.message);
-          setResApi(data.message)
-        }else {
-          closeModal()
+          setResApi(data.message);
+        } else {
+          closeModal();
         }
       })
       .catch((error) => {
         console.log(error);
-        setResApi(error.message)
+        setResApi(error.message);
       });
   };
+
   return (
     <>
-      {days.map((d, i) => (
-        <div
-          style={i === 0 ? style : null}
-          key={d}
-          className={
-            i === actualDay - 1 && actualMonth == month && year == actualYear
-              ? "divDays actual-day"
-              : "divDays"
-          }
-        >
-          <button
-            type="submit"
-            className="button-event"
-            onClick={() => openForm(d)}
+      {days.map((d, i) => {
+        return (
+          <div
+            style={i === 0 ? style : null}
+            key={d}
+            className={
+              i === actualDay - 1 && actualMonth == month && year == actualYear
+                ? "divDays actual-day"
+                : "divDays"
+            }
           >
-            <p className={getClassName(year, month, d)}>{d}</p>
-          </button>
-        </div>
-      ))}
-
+            <button
+              type="submit"
+              className="button-event"
+              onClick={() => openForm(d)}
+            >
+              <p className={getClassName(year, month, d)}>{d}</p>
+            </button>
+          </div>
+        );
+      })}
       <section
         className="modal-back"
         style={{ display: open ? "flex" : "none" }}
@@ -143,10 +145,12 @@ export const DaysMonth = ({ year, month }) => {
               </div>
             </div>
             <footer className="modal-footer myForm">
-              <button onClick={closeModal}>
+              <button className="button-cancel" onClick={closeModal}>
                 <span>Cancel</span>
               </button>
-              <button type="submit">Save</button>
+              <button className="button-save" type="submit">
+                Save
+              </button>
             </footer>
           </form>
         </article>

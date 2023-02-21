@@ -8,6 +8,8 @@ const App = () => {
   const [postId, setPostId] = useState(null);
   const [data, setData] = useState({ month: null, year: null });
 
+  const [events, setEvents] = useState(null);
+
   const onSubmit = ({ month, year }) => {
     const m = month ? MONTHS[month.toLowerCase()] + 1 : null;
     setData({ month: m, year });
@@ -16,11 +18,17 @@ const App = () => {
   const resetPage = () => {
     setData({ month: null, year: null });
   };
-
+  // const showEvents = () => {
+    
+  // };
 
   return (
     <div className="App">
-      <FormCalendar onSubmit={onSubmit} clear={resetPage} />
+      <FormCalendar
+        onSubmit={onSubmit}
+        clear={resetPage}
+        // showEvents={showEvents}
+      />
       {/*Month: Enero es 1 , etc... , null,0,undefined pinta todo el año*/}
       {data.year && <Calendar year={data.year} month={data.month} />}
     </div>
